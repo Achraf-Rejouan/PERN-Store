@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import productRoutes from './routes/productRoutes.js'; // Import product routes
+import { sql } from './config/db.js'; // Import the database connection
 
 // Load environment variables from .env file
 dotenv.config();
@@ -20,6 +21,27 @@ app.use(morgan('dev')); // Use Morgan for logging HTTP requests in development m
 
 app.get('/api/products', productRoutes);
 
-app.listen(PORT, () => {
+async function initDB() {
+  try {
+    await sql`
+    CREATE TABLE IF NOT EXISTS products (
+      id SERIAL PRIMARY KEY,
+      name VARCHAR(255) NOT NULL,
+      image VARCHAR(255) NOT NULL,
+      price DECIMAL(10, 2) NOT NULL,
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+    `;
+    console.log('DB initialized and products table created if it did not exist.');
+  } catch (error) {
+    console.error('Error connecting to the database:', error);
+  }
+}
+
+// Initialize the database connection and create the products table if it doesn't exist
+initDB().then(() => {
+  app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+});
+
