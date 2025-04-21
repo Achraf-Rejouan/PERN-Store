@@ -19,7 +19,7 @@ app.use(cors()); // Enable CORS for all routes
 app.use(helmet()); // Use Helmet to set various HTTP headers for security
 app.use(morgan('dev')); // Use Morgan for logging HTTP requests in development mode
 
-app.get('/api/products', productRoutes);
+app.use('/api/products', productRoutes);
 
 async function initDB() {
   try {
