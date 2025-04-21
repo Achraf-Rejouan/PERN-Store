@@ -2,9 +2,9 @@
   "name": "pern-store",
   "version": "1.0.0",
   "description": "Highlights:",
-  "main": "server/server.js",
+  "main": "server/app.js",
   "scripts": {
-    "dev": "nodemon server/server.js"
+    "dev": "nodemon server/app.js"
   },
   "repository": {
     "type": "git",
