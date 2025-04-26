@@ -1,15 +1,11 @@
-<h1 align="center">✨ PERN Stack Tutorial ✨</h1>
-
-![Demo App](/frontend/public/screenshot-for-readme.png)
+# PERN-Store
 
 Highlights:
 
-- 🌟 Tech stack: PERN + TailwindCSS + Daisy UI
-- 🚀 Rate Limiting & Bot Detection
-- 👌 Global state management with Zustand
-- 🐞 Error handling both on the server and client
-- ⭐ Deployment for FREE!
-- ⏳ And much more!
+- Tech stack: PERN ( PostgreSQL, Express.js, React.js, Node.js ) + TailwindCSS + Daisy UI
+- Rate Limiting & Bot Detection
+- Global state management with Zustand
+- Error handling both on the server and client
 
 ### Setup .env file
 
